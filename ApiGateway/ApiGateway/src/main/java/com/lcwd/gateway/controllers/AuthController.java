@@ -17,13 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
 
     private Logger logger = LoggerFactory.getLogger(AuthController.class);
-
 
     @GetMapping("/login")
     public ResponseEntity<AuthResponse> login(
@@ -31,7 +29,6 @@ public class AuthController {
             @AuthenticationPrincipal OidcUser user,
             Model model
     ) {
-
 
         logger.info("user email id : {} ", user.getEmail());
 
@@ -52,11 +49,9 @@ public class AuthController {
             return grantedAuthority.getAuthority();
         }).collect(Collectors.toList());
 
-
         authResponse.setAuthorities(authorities);
 
         return new ResponseEntity<>(authResponse, HttpStatus.OK);
-
 
     }
 

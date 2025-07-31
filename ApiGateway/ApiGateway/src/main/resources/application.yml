@@ -5,7 +5,6 @@ spring:
   application:
     name: API-GATEWAY
 
-
   cloud:
     gateway:
       routes:
@@ -24,9 +23,6 @@ spring:
           predicates:
             - Path=/ratings/**
 
-
-
-
 eureka:
   instance:
     prefer-ip-address: true
@@ -36,9 +32,7 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka
 
-
 #okta configuration for api gateway
-
 okta:
   oauth2:
     issuer: https://dev-77584981.okta.com/oauth2/default

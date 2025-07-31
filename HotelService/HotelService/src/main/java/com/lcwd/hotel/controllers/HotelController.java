@@ -1,6 +1,6 @@
 package com.lcwd.hotel.controllers;
 
-import com.lcwd.hotel.entites.Hotel;
+import com.lcwd.hotel.entities.Hotel;
 import com.lcwd.hotel.services.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,13 +18,11 @@ public class HotelController {
     private HotelService hotelService;
 
     //create
-
     @PreAuthorize("hasAuthority('Admin')")
     @PostMapping
     public ResponseEntity<Hotel> createHotel(@RequestBody Hotel hotel) {
         return ResponseEntity.status(HttpStatus.CREATED).body(hotelService.create(hotel));
     }
-
 
     //get single
     @PreAuthorize("hasAuthority('SCOPE_internal')")
@@ -33,13 +31,11 @@ public class HotelController {
         return ResponseEntity.status(HttpStatus.OK).body(hotelService.get(hotelId));
     }
 
-
     //get all
     @PreAuthorize("hasAuthority('SCOPE_internal') || hasAuthority('Admin')")
     @GetMapping
     public ResponseEntity<List<Hotel>> getAll(){
         return ResponseEntity.ok(hotelService.getAll());
     }
-
 
 }

@@ -1,6 +1,6 @@
 package com.lcwd.hotel.services;
 
-import com.lcwd.hotel.entites.Hotel;
+import com.lcwd.hotel.entities.Hotel;
 
 import java.util.List;
 

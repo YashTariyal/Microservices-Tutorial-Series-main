@@ -1,7 +1,6 @@
 package com.lcwd.hotel.services.impl;
 
-import com.lcwd.hotel.entites.Hotel;
-import com.lcwd.hotel.exceptions.ResourceNotFoundException;
+import com.lcwd.hotel.entities.Hotel;
 import com.lcwd.hotel.respositories.HotelRepository;
 import com.lcwd.hotel.services.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +29,6 @@ public class HotelServiceImpl implements HotelService {
 
     @Override
     public Hotel get(String id) {
-        return hotelRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("hotel with given id not found !!"));
+        return hotelRepository.findById(id).orElseThrow(() -> new RuntimeException("Hotel not found"));
     }
 }
